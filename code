@@ -1,0 +1,134 @@
+#include<stdio.h>
+int main(){
+ FILE*file;
+int pass,menu,booked,code;
+char user[50];
+char mail[50];
+char num[50];
+
+file = fopen("ticket.txt", "a");
+if(file == NULL)
+{
+ printf("File does not created");
+}
+
+else
+{
+
+
+
+
+ printf("\t\t\t\t\tWelcome to movie ticket booking system \n\n");
+printf("Enter your name : ");
+gets(user);
+printf("Enter your mail : ");
+gets(mail);
+printf("Enter phone number : ");
+gets(num);
+printf("Enter default password (123) : ");
+scanf("%d",&pass);
+
+fprintf(file,"%s\t",user);
+fprintf(file,"%s\t",mail);
+fprintf(file,"%s\t",num);
+
+
+switch(pass)
+{
+ case 123 :
+
+ printf("\n\n\nPress 1 for schedule \nPress 2 to book\nAny key to Exit\n");
+ printf("Enter what you want : ");
+ scanf("%d",&menu);
+
+ switch(menu)
+ {
+ case 1 :
+ printf("\n\n \t\t\tHere are available shows for Today : \n\n");
+ printf("\t\t\t1 Avatar Time : 9 am to 12 pm\n");
+ printf("\t\t\t2 Spider Man Time : 12.30 pm to 3 pm\n");
+ printf("\t\t\t3 Bat Man Time : 3.30 pm to 6 pm\n");
+ printf("\t\t\t4 Interstellar Time : 7 pm to 9.30 pm\n");
+ printf("\t\t\t5 Iron Man Time : 10 pm to 12 pm\n");
+
+ case 2 :
+ printf("Enter movie code : ");
+ scanf("%d",&code);
+
+ if(code<6 && code!=0)
+ {
+
+ printf("\n \t\t\tChoose your seat for Today's show: \n");
+ printf("\n \t\t\t 1\t 2\t 3\t \n\n \t\t\t 4\t 5\t 6\t----=> ");
+ scanf("%d",&booked);
+
+ switch(booked)
+ {
+ case 1 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+
+ printf("\n\n \t\t\t %s, you have booked seat number : 1\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t Booked seat : 1\n",user);
+ break;
+ case 2 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+ printf("\n\n \t\t\t %s, you have booked seat number: 2\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t booked seat : 1\n",user);
+ break;
+ case 3 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+ printf("\n\n \t\t\t %s, you have booked seat number: 3\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t booked seat : 1\n",user);
+ break;
+ case 4 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+ printf("\n\n \t\t\t %s, you have booked seat number: 4\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t booked seat : 1\n",user);
+ break;
+
+ case 5 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+ printf("\n\n \t\t\t %s, you have booked seat number: 5\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t booked seat : 1\n",user);
+ break;
+
+ case 6 :
+ printf("\n\n\n \t\t\t Your mail is : %s\n",mail);
+ printf("\n \t\t\t Your number is : %s\n",num);
+ printf("\n\n \t\t\t %s, you have booked seat number: 6\n",user);
+ printf("\t\t\t\t Your ticket cost is 350/- Taka only");
+ printf("\n \t\t\t\t Available seat : 5 \t booked seat : 1\n",user);
+ break;
+
+ default :
+ printf("\n \t\t\t\t Invalid seat number ");
+ }
+
+ }
+
+ else
+ printf("You have Entered wrong movie code");
+
+ }
+ break;
+
+ default :
+ printf("\n\t\t\tSorry you have entered wrong keyword.");
+
+}
+
+ fclose(file);
+}
+
+return 0;
+}
